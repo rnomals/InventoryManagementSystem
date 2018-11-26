@@ -171,7 +171,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
             <li class="nav-item">
                 <router-link to="/dashboard" class="nav-link">
-                    <i class="fas fa-tachometer-alt"></i>
+                    <i class="fas fa-tachometer-alt blue"></i>
                     <p>
                         Dashboard
                         {{-- <span class="right badge badge-danger">New</span> --}}
@@ -182,7 +182,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item has-treeview">
             <a href="#" class="nav-link">
-                <i class="fas fa-cog"></i>
+                <i class="fas fa-cog green"></i>
               <p>
                 Management
                 <i class="right fa fa-angle-left"></i>
@@ -190,9 +190,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Active Page</p>
+                <router-link to="/users" class="nav-link">
+                  <i class="fas fa-users nav-icon teal"></i>
+                  <p>Users</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -206,7 +206,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <li class="nav-item">
             <router-link to="/profile" class="nav-link">
-                <i class="fas fa-user"></i>
+                <i class="fas fa-user orange"></i>
                 <p>
                     Profile
                     {{-- <span class="right badge badge-danger">New</span> --}}
@@ -215,14 +215,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </li>
 
         <li class="nav-item">
-            <a href="#" class="nav-link">
-                <i class="fas fa-power-off"></i>
-                <p>
-                    Logout
-                    {{-- <span class="right badge badge-danger">New</span> --}}
-                </p>
+            <a class="nav-link" href="{{ route('logout') }}"
+            onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                      <i class="fas fa-power-off red"></i>
+                      <p>{{ __('Logout') }}</p>
             </a>
+
+
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
         </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -241,6 +246,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- route outlet -->
         <!-- component matched by the route will render here -->
         <router-view></router-view>
+
+        <vue-progress-bar></vue-progress-bar>
 
       </div><!-- /.container-fluid -->
     </div>
