@@ -79,7 +79,10 @@
                 </div>
             @endif
 
-            <div class="content">
+            <h1>Stock Management System</h1>
+            <img src="./img/Ucsc.png" alt="UCSC Logo">
+
+{{--             <div class="content">
                 <div class="title m-b-md">
                     Laravel
                 </div>
@@ -93,6 +96,6 @@
                     <a href="https://github.com/laravel/laravel">GitHub</a>
                 </div>
             </div>
-        </div>
+        </div> --}}
     </body>
 </html>
